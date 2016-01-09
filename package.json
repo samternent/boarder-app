@@ -1,0 +1,44 @@
+{
+  "name": "board-app",
+  "version": "0.0.1",
+  "main": "dist/bundle_server.js",
+  "scripts": {
+    "server-dev": "webpack --config webpack_server.config.js --watch",
+    "client-dev": "webpack --config webpack_client.config.js --watch",
+    "start": "nodemon dist/bundle_server.js"
+  },
+  "author": "sam ternent",
+  "dependencies": {
+    "axios": "^0.8.1",
+    "babel-loader": "^5.4.0",
+    "babel-preset-react": "^6.3.13",
+    "babel-register": "^6.3.13",
+    "body-parser": "^1.14.0",
+    "can-use-dom": "^0.1.0",
+    "es6-arrow-function": "^0.6.6",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.6",
+    "request": "^2.67.0",
+    "reqwest": "^2.0.3",
+    "tbg-flux-factory": "^0.2.0",
+    "xhr2": "^0.1.3"
+  },
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-cli": "^6.4.0",
+    "babel-core": "^5.5.8",
+    "babel-loader": "^5.1.4",
+    "css-loader": "^0.21.0",
+    "ejs": "^2.3.2",
+    "express": "~4.10.2",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "node-sass": "^3.4.2",
+    "path": "^0.12.7",
+    "sass-loader": "^3.1.1",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.9.11",
+    "webpack-dev-server": "^1.9.0"
+  },
+  "description": "Archie is a JS project boilerplate",
+  "license": "MIT"
+}
