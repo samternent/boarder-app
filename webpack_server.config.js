@@ -19,8 +19,8 @@ module.exports = {
     ],
   },
   output: {
-      path: path.join(__dirname, 'dist'),
-      filename: 'bundle_[name].js'
+      path: path.join(__dirname, '/'),
+      filename: '[name].js'
   },
   resolve: {
       extensions: ['', '.js'],

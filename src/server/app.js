@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.use('/assets', express.static(__dirname + '/public'));
 
 var routes = require('./routes')(app);
-
+console.log(process.env.PORT);
 app.set('port', (process.env.PORT || 5000));
 
 app.listen(app.get('port'), function() {
