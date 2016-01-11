@@ -12,7 +12,7 @@ var myReactRoute = function (res, route) {
   AppStore.setState({ route: route });
   var app = renderToString( <App /> );
 
-  res.render('index.ejs', {
+  res.render('index.ejs', { 
       app   : app,
       route : route || 'home'
     });
