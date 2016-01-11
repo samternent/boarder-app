@@ -1,5 +1,5 @@
 {
-  "name": "board-app",
+  "name": "boarder-app",
   "version": "0.0.1",
   "main": "dist/bundle_server.js",
   "scripts": {
