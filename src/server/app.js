@@ -14,9 +14,6 @@ app.use('/assets', express.static(__dirname + '/public'));
 
 var routes = require('./routes')(app);
 
-console.log(process);
-console.log(process.env);
-console.log(process.env.PORT);
 var port = process.env.PORT || 7000;
 
 app.listen(port, function() {

@@ -79,9 +79,6 @@
 
 	var routes = __webpack_require__(6)(app);
 
-	console.log(process);
-	console.log(process.env);
-	console.log(process.env.PORT);
 	var port = process.env.PORT || 7000;
 
 	app.listen(port, function () {
