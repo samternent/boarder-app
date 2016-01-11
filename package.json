@@ -5,7 +5,7 @@
   "scripts": {
     "server-dev": "webpack --config webpack_server.config.js --watch",
     "client-dev": "webpack --config webpack_client.config.js --watch",
-    "start": "nodemon dist/bundle_server.js"
+    "start": "node dist/bundle_server.js"
   },
   "author": "sam ternent",
   "dependencies": {
