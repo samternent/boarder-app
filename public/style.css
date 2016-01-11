@@ -5,11 +5,12 @@
   box-sizing: border-box; }
 
 .red { color: #477998; }
-.blue { color: #BF5D5E; }
-.green { color: #35CE8D; }
+.red { color: #E07A5F; }
+.blue { color: #477998; }
+.green { color: #81B29A; }
 .white { color: #fff; }
 
-h1, h2, h3, h4, h5 { font-weight: 800; }
+h1, h2, h3, h4, h5 { font-weight: 400; }
 
 body {
   font-family: 'Raleway', sans-serif;
@@ -38,7 +39,7 @@ body {
   box-shadow: inset 0px 1px 3px 1px rgba(51, 68, 49, 0.3), inset rgba(255, 255, 255, 0.2) 0 1px 1px;
 }
 .login__input {
-  width: 60%;
+  width: 100%;
   display: block;
   padding: 0.5em;
   padding: 0.5em;
@@ -55,14 +56,51 @@ body {
 }
 
 
-
 .tray {
   background-color: #291F1E;
-  flex: 0 0 4em;
-  order: -1;
-  margin: 3em 0 0;
+  position: fixed;
+  bottom: 0; left: 0;
+  right: 0;
+}
+.archie-tray__item {
+  margin: 0.5em;
+  font-size: 2em;
+  color: white;
+  display: inline-block;
 }
 
+@media all and (min-width: 640px) {
+  .login__input {
+    width: 90%;
+  }
+  .tray {
+    background-color: #291F1E;
+    flex: 0 0 4em;
+    order: -1;
+    margin: 2.5em 0 0;
+    position: relative;
+  }
+  .wrapper {
+    flex: 1;
+    margin: 2.5em 0 0;
+  }
+
+}
+.pointer {
+  cursor: pointer;
+}
+@media all and (min-width: 960px) {
+  .login__input {
+    width: 60%;
+  }
+  .wrapper {
+    margin: 3em 0 0;
+  }
+  .tray {
+    background-color: #291F1E;
+    margin: 3em 0 0;
+  }
+}
 .layout {
   flex: 1;
   padding: 1em;
@@ -72,7 +110,8 @@ body {
   position: fixed;
   top: 0;
   bottom: auto;
-  line-height: 2em;
+  line-height: 3em;
+  z-index: 3;
 }
 
 .archie__logo {
@@ -96,13 +135,16 @@ body {
     line-height: 1em;
   }
   .archie-menu {
-    height: 3em;
     top: auto;
     bottom: 0;
   }
 }
 
 
+@media all and (min-width: 640px) {
+  .archie-menu{
+    line-height: 2em}
+}
 
 
 
@@ -199,24 +241,23 @@ a.local-link--is-active {
 @media all and (min-width: 640px) {
 }
 
-@media all and (min-width: 960px) {
 
-  .archie-tray {
-    background-color: #477998;
-    border-right: 2px groove #c3c3c3;
-    width: auto;
-    position: relative;
-    top: 3em;
-  }
-  .archie-tray__items {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
 
-  }
-  .archie-tray__item {
-    margin: 0.5em;
-    font-size: 2em;
-    color: white;
-  }
+.archie-tray {
+  background-color: #477998;
+  border-right: 2px groove #c3c3c3;
+  width: auto;
+  position: relative;
+  top: 3em;
+}
+.archie-tray__items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+.archie-tray__item {
+  margin: 0.5em;
+  font-size: 2em;
+  color: white;
 }

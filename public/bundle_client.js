@@ -22177,7 +22177,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -22202,33 +22202,43 @@
 	// Component
 
 	var Payment = function (_React$Component) {
-	    _inherits(Payment, _React$Component);
+	  _inherits(Payment, _React$Component);
 
-	    function Payment(props) {
-	        _classCallCheck(this, Payment);
+	  function Payment(props) {
+	    _classCallCheck(this, Payment);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Payment).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Payment).call(this, props));
 
-	        _this.state = {};
-	        return _this;
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(Payment, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: '' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Payments'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'You can manage all of your payments here, view a payment history, set payment date.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'We\'ll have payments set up with stripe. Tennants can set up a recurring paymeent on the day of their choice.'
+	        )
+	      );
 	    }
+	  }]);
 
-	    _createClass(Payment, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'contain content' },
-	                _react2.default.createElement(
-	                    'h2',
-	                    null,
-	                    'this is the payment'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Payment;
+	  return Payment;
 	}(_react2.default.Component);
 
 	exports.default = Payment;
@@ -22242,7 +22252,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -22267,33 +22277,38 @@
 	// Component
 
 	var Chat = function (_React$Component) {
-	    _inherits(Chat, _React$Component);
+	  _inherits(Chat, _React$Component);
 
-	    function Chat(props) {
-	        _classCallCheck(this, Chat);
+	  function Chat(props) {
+	    _classCallCheck(this, Chat);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Chat).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Chat).call(this, props));
 
-	        _this.state = {};
-	        return _this;
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(Chat, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'contain content' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Chat'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Chat client; chat with your tennants, track home issues, requests... or just check your tennant is happy :)'
+	        )
+	      );
 	    }
+	  }]);
 
-	    _createClass(Chat, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'contain content' },
-	                _react2.default.createElement(
-	                    'h2',
-	                    null,
-	                    'this is the chat'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Chat;
+	  return Chat;
 	}(_react2.default.Component);
 
 	exports.default = Chat;
@@ -22307,7 +22322,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -22332,33 +22347,43 @@
 	// Component
 
 	var Docs = function (_React$Component) {
-	    _inherits(Docs, _React$Component);
+	  _inherits(Docs, _React$Component);
 
-	    function Docs(props) {
-	        _classCallCheck(this, Docs);
+	  function Docs(props) {
+	    _classCallCheck(this, Docs);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Docs).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Docs).call(this, props));
 
-	        _this.state = {};
-	        return _this;
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(Docs, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'contain content' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Documents'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Here you can upload all important documents you need.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'You can tag all documents and images to categories for filters and property linking. Use this to store Right To Rent etc.'
+	        )
+	      );
 	    }
+	  }]);
 
-	    _createClass(Docs, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'contain content' },
-	                _react2.default.createElement(
-	                    'h2',
-	                    null,
-	                    'this is the docs page'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return Docs;
+	  return Docs;
 	}(_react2.default.Component);
 
 	exports.default = Docs;
@@ -22495,7 +22520,6 @@
 	  _createClass(Nav, [{
 	    key: 'handleLogoutClick',
 	    value: function handleLogoutClick(e) {
-	      e.preventDefault();
 	      _user2.default.Actions.logout();
 	    }
 	  }, {
@@ -22504,11 +22528,11 @@
 	      if (this.props.user.logged_in) {
 	        return _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'pointer', onClick: this.handleLogoutClick.bind(this) },
 	          _react2.default.createElement('i', { className: 'fa fa-user green archie__logo__icon' }),
 	          _react2.default.createElement(
 	            'span',
-	            { className: 'archie__logo__text', onClick: this.handleLogoutClick.bind(this) },
+	            { className: 'archie__logo__text' },
 	            'logout ' + this.props.user.email
 	          )
 	        );
@@ -22516,7 +22540,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement('i', { className: 'fa fa-user blue archie__logo__icon' }),
+	        _react2.default.createElement('i', { className: 'fa fa-user red archie__logo__icon' }),
 	        _react2.default.createElement(
 	          'span',
 	          { className: 'archie__logo__text' },
@@ -22539,7 +22563,7 @@
 	            _react2.default.createElement(
 	              _local_link2.default,
 	              { route: 'home', currentRoute: this.props.currentRoute },
-	              _react2.default.createElement('i', { className: 'fa fa-compass red archie__logo__icon' }),
+	              _react2.default.createElement('i', { className: 'fa fa-compass blue archie__logo__icon' }),
 	              _react2.default.createElement(
 	                'span',
 	                { className: 'archie__logo__text' },
