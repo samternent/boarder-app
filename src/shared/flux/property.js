@@ -10,7 +10,7 @@ export default Flux.createStore({
       getProperties() {
         axios({
           crossOrigin: true,
-          url: 'http://localhost:1337/property',
+          url: 'http://boarder-api.herokuapp.com/property',
           method: 'get'
         })
         .then(this.Actions.handleProperties)

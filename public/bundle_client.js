@@ -19719,7 +19719,7 @@
 
 	var _layoutsProperty2 = _interopRequireDefault(_layoutsProperty);
 
-	var _layoutsLogin = __webpack_require__(196);
+	var _layoutsLogin = __webpack_require__(194);
 
 	var _layoutsLogin2 = _interopRequireDefault(_layoutsLogin);
 
@@ -19736,17 +19736,17 @@
 
 	var _fluxApp2 = _interopRequireDefault(_fluxApp);
 
-	var _fluxUser = __webpack_require__(197);
+	var _fluxUser = __webpack_require__(195);
 
 	var _fluxUser2 = _interopRequireDefault(_fluxUser);
 
 	// Components
 
-	var _componentsNav = __webpack_require__(194);
+	var _componentsNav = __webpack_require__(196);
 
 	var _componentsNav2 = _interopRequireDefault(_componentsNav);
 
-	var _componentsTray = __webpack_require__(195);
+	var _componentsTray = __webpack_require__(197);
 
 	var _componentsTray2 = _interopRequireDefault(_componentsTray);
 
@@ -20005,7 +20005,7 @@
 	      getProperties: function getProperties() {
 	        (0, _axios2['default'])({
 	          crossOrigin: true,
-	          url: 'http://localhost:1337/property',
+	          url: 'http://boarder-api.herokuapp.com/property',
 	          method: 'get'
 	        }).then(this.Actions.handleProperties);
 	      }
@@ -22166,6 +22166,161 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	// Flux
+
+	var _fluxUser = __webpack_require__(195);
+
+	var _fluxUser2 = _interopRequireDefault(_fluxUser);
+
+	// Component
+
+	var Login = (function (_React$Component) {
+	  _inherits(Login, _React$Component);
+
+	  function Login(props) {
+	    _classCallCheck(this, Login);
+
+	    _get(Object.getPrototypeOf(Login.prototype), 'constructor', this).call(this, props);
+	    this.state = {
+	      email: null,
+	      password: null
+	    };
+	  }
+
+	  _createClass(Login, [{
+	    key: 'updateEmail',
+	    value: function updateEmail(e) {
+	      this.setState({
+	        email: e.target.value
+	      });
+	    }
+	  }, {
+	    key: 'updatePassword',
+	    value: function updatePassword(e) {
+	      this.setState({
+	        password: e.target.value
+	      });
+	    }
+	  }, {
+	    key: 'handleLogin',
+	    value: function handleLogin(e) {
+	      e.preventDefault();
+	      _fluxUser2['default'].Actions.login(this.state);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'contain content' },
+	        _react2['default'].createElement(
+	          'form',
+	          null,
+	          _react2['default'].createElement('input', { onChange: this.updateEmail.bind(this), type: 'text', placeholder: 'Email' }),
+	          _react2['default'].createElement('input', { onChange: this.updatePassword.bind(this), type: 'password', placeholder: 'Password' }),
+	          _react2['default'].createElement(
+	            'button',
+	            { onClick: this.handleLogin.bind(this) },
+	            'Login'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Login;
+	})(_react2['default'].Component);
+
+	exports['default'] = Login;
+	module.exports = exports['default'];
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _tbgFluxFactory = __webpack_require__(164);
+
+	var _tbgFluxFactory2 = _interopRequireDefault(_tbgFluxFactory);
+
+	var _axios = __webpack_require__(173);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	exports['default'] = _tbgFluxFactory2['default'].createStore({
+	  name: 'user',
+	  data: {
+	    token: null,
+	    expires: null,
+	    id: null,
+	    user: {},
+	    email: null,
+	    logged_in: false
+	  },
+	  actions: {
+	    view: {
+	      getUserSession: function getUserSession() {
+	        var user_state = JSON.parse(localStorage.getItem('jwt'));
+	        this.setState(user_state);
+	      },
+	      login: function login(params) {
+	        var _this = this;
+
+	        (0, _axios2['default'])({
+	          crossOrigin: true,
+	          url: 'http://boarder-api.herokuapp.com/auth/login',
+	          method: 'post',
+	          data: params
+	        }).then(function (resp) {
+	          var user_state = {
+	            token: resp.data.token,
+	            expires: resp.data.expires,
+	            id: resp.data.user.id,
+	            email: resp.data.user.auth.email,
+	            logged_in: true
+	          };
+
+	          localStorage.setItem('jwt', JSON.stringify(user_state));
+	          _this.setState(user_state);
+	        });
+	      }
+	    },
+	    server: {}
+	  }
+	});
+	module.exports = exports['default'];
+
+/***/ },
+/* 196 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	// Components
 
 	var _local_link = __webpack_require__(190);
@@ -22257,7 +22412,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 195 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22325,161 +22480,6 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Tray;
-	module.exports = exports['default'];
-
-/***/ },
-/* 196 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	// Flux
-
-	var _fluxUser = __webpack_require__(197);
-
-	var _fluxUser2 = _interopRequireDefault(_fluxUser);
-
-	// Component
-
-	var Login = (function (_React$Component) {
-	  _inherits(Login, _React$Component);
-
-	  function Login(props) {
-	    _classCallCheck(this, Login);
-
-	    _get(Object.getPrototypeOf(Login.prototype), 'constructor', this).call(this, props);
-	    this.state = {
-	      email: null,
-	      password: null
-	    };
-	  }
-
-	  _createClass(Login, [{
-	    key: 'updateEmail',
-	    value: function updateEmail(e) {
-	      this.setState({
-	        email: e.target.value
-	      });
-	    }
-	  }, {
-	    key: 'updatePassword',
-	    value: function updatePassword(e) {
-	      this.setState({
-	        password: e.target.value
-	      });
-	    }
-	  }, {
-	    key: 'handleLogin',
-	    value: function handleLogin(e) {
-	      e.preventDefault();
-	      _fluxUser2['default'].Actions.login(this.state);
-	    }
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return _react2['default'].createElement(
-	        'div',
-	        { className: 'contain content' },
-	        _react2['default'].createElement(
-	          'form',
-	          null,
-	          _react2['default'].createElement('input', { onChange: this.updateEmail.bind(this), type: 'text', placeholder: 'Email' }),
-	          _react2['default'].createElement('input', { onChange: this.updatePassword.bind(this), type: 'password', placeholder: 'Password' }),
-	          _react2['default'].createElement(
-	            'button',
-	            { onClick: this.handleLogin.bind(this) },
-	            'Login'
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return Login;
-	})(_react2['default'].Component);
-
-	exports['default'] = Login;
-	module.exports = exports['default'];
-
-/***/ },
-/* 197 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	  value: true
-	});
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-	var _tbgFluxFactory = __webpack_require__(164);
-
-	var _tbgFluxFactory2 = _interopRequireDefault(_tbgFluxFactory);
-
-	var _axios = __webpack_require__(173);
-
-	var _axios2 = _interopRequireDefault(_axios);
-
-	exports['default'] = _tbgFluxFactory2['default'].createStore({
-	  name: 'user',
-	  data: {
-	    token: null,
-	    expires: null,
-	    id: null,
-	    user: {},
-	    email: null,
-	    logged_in: false
-	  },
-	  actions: {
-	    view: {
-	      getUserSession: function getUserSession() {
-	        var user_state = JSON.parse(localStorage.getItem('jwt'));
-	        this.setState(user_state);
-	      },
-	      login: function login(params) {
-	        var _this = this;
-
-	        (0, _axios2['default'])({
-	          crossOrigin: true,
-	          url: 'http://localhost:1337/auth/login',
-	          method: 'post',
-	          data: params
-	        }).then(function (resp) {
-	          var user_state = {
-	            token: resp.data.token,
-	            expires: resp.data.expires,
-	            id: resp.data.user.id,
-	            email: resp.data.user.auth.email,
-	            logged_in: true
-	          };
-
-	          localStorage.setItem('jwt', JSON.stringify(user_state));
-	          _this.setState(user_state);
-	        });
-	      }
-	    },
-	    server: {}
-	  }
-	});
 	module.exports = exports['default'];
 
 /***/ }

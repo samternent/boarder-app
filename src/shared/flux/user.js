@@ -21,7 +21,7 @@ export default Flux.createStore({
       login(params) {
         axios({
           crossOrigin: true,
-          url: 'http://localhost:1337/auth/login',
+          url: 'http://boarder-api.herokuapp.com/auth/login',
           method: 'post',
           data: params
         })
