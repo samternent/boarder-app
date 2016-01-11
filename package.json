@@ -16,6 +16,7 @@
     "babel-register": "^6.3.13",
     "body-parser": "^1.14.0",
     "can-use-dom": "^0.1.0",
+    "ejs": "^2.3.4",
     "es6-arrow-function": "^0.6.6",
     "express": "^4.10.8",
     "react": "^0.14.3",
