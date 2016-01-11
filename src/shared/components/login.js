@@ -31,12 +31,13 @@ export default class Login extends React.Component {
   }
 
   render() {
+    if (this.props.user.email) { return null; }
     return (
-        <div className='contain content'>
+        <div className='login'>
            <form>
-             <input onChange={ this.updateEmail.bind(this) } type='text' placeholder='Email' />
-             <input onChange={ this.updatePassword.bind(this) } type='password' placeholder='Password' />
-             <button onClick={ this.handleLogin.bind(this) }>Login</button>
+             <input className='login__input login__input--email' onChange={ this.updateEmail.bind(this) } type='text' placeholder='Email' />
+             <input className='login__input login__input--password' onChange={ this.updatePassword.bind(this) } type='password' placeholder='Password' />
+             <button className='login__input login__input--submit' onClick={ this.handleLogin.bind(this) }>Login</button>
            </form>
         </div>
       );

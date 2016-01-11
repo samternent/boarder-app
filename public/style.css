@@ -4,55 +4,110 @@
   padding: 0;
   box-sizing: border-box; }
 
-.red {
-  color: #477998;
-}
-.blue {
-  color: #BF5D5E;
-}
-.green {
-  color: #35CE8D;
-}
-.white {
-  color: #fff;
-}
+.red { color: #477998; }
+.blue { color: #BF5D5E; }
+.green { color: #35CE8D; }
+.white { color: #fff; }
 
-h1, h2, h3, h4, h5 {
-  font-weight: 800; }
+h1, h2, h3, h4, h5 { font-weight: 800; }
 
 body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: #291F1E; }
+  color: #291F1E;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-.archie-menu-items {
-      line-height: 2em;
-  float: right; }
-.archie-menu {
-  top: 0;
-  bottom: auto; }
-
-.contain {
-  max-width: 1024px;
-  margin: 0 auto; }
-
-.content {
+.main-wrapper {
+  display: flex;
+  min-height: 100vh;
+  display: flex;
+}
+.wrapper {
+  flex: 1;
+  margin: 3em 0 0;
+}
+.login {
+  background-color: #477998;
+  text-align: center;
   padding: 1em;
-  font-weight: 200;
+  border-bottom: 1px groov2 #291F1E;
+  box-shadow: inset 0px 1px 3px 1px rgba(51, 68, 49, 0.3), inset rgba(255, 255, 255, 0.2) 0 1px 1px;
+}
+.login__input {
+  width: 60%;
+  display: block;
+  padding: 0.5em;
+  padding: 0.5em;
+  margin: 0.5em auto;
+  border: 0;
+  background-color: #eee;
+}
+.login__input--submit {
+  color: white;
+  border: 0;
+  background-color: #477998;
   margin-top: 2em;
+  border: 3px solid white;
+}
+
+
+
+.tray {
+  background-color: #291F1E;
+  flex: 0 0 4em;
+  order: -1;
+  margin: 3em 0 0;
+}
+
+.layout {
+  flex: 1;
+  padding: 1em;
+}
+
+.archie-menu {
+  position: fixed;
+  top: 0;
+  bottom: auto;
+  line-height: 2em;
 }
 
 .archie__logo {
   float: left;
-  line-height: 2em;
+}
+.archie-menu-items {
+  float: right;
 }
 
 .archie__logo__text {
-  display: none; }
+  display: none;
+}
 
 .archie__logo__icon {
-  margin-right: 1em; }
+  margin-right: 1em;
+}
+
+@media all and (min-width: 960px) {
+  .archie__logo {
+    font-size: 2em;
+    line-height: 1em;
+  }
+  .archie-menu {
+    height: 3em;
+    top: auto;
+    bottom: 0;
+  }
+}
+
+
+
+
+
+
+
 
 .archie-menu {
   min-height: 2em;
@@ -62,11 +117,9 @@ body {
   top: 0;
   background-color: white;
   overflow: auto;
-  position: fixed;
-  font-family: 'Raleway', sans-serif;
   font-weight: 100;
-  font-size: 1em;
-  color: #334431; }
+  color: #334431;
+}
 
 .archie-menu-items {
   display: flex;
@@ -90,28 +143,12 @@ body {
     text-decoration: none; }
 
 @media all and (min-width: 640px) {
-  .content {
-    margin-top: 2em; }
-  .archie__logo {
-    float: none;
-    display: inline-block; }
   .archie__logo__text {
-    display: inline-block; }
-  .archie-menu-items {
-    float: right; }
+    display: inline-block;
+  }
   .archie-menu {
     top: 0;
     bottom: auto; } }
-
-@media all and (min-width: 960px) {
-  .content {
-    margin-top: 3em; }
-  .archie__logo {
-    font-size: 2em;
-    margin-top: -0.5em;
-  }
-  .archie-menu {
-    height: 3em; } }
 
 
 .properties {
@@ -158,26 +195,6 @@ a.local-link--is-active {
 }
 
 
-.archie-tray {
-  background-color: #477998;
-  border-right: 2px groove #c3c3c3;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-}
-.archie-tray__items {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-}
-.archie-tray__item {
-  margin: 0.5em;
-  font-size: 1em;
-  color: white;
-  display: inline-block;
-}
-
 
 @media all and (min-width: 640px) {
 }
@@ -187,11 +204,9 @@ a.local-link--is-active {
   .archie-tray {
     background-color: #477998;
     border-right: 2px groove #c3c3c3;
-    /*width: 1em;*/
-    height: 100vh;
-    position: fixed;
-    bottom: inherit;
     width: auto;
+    position: relative;
+    top: 3em;
   }
   .archie-tray__items {
     list-style-type: none;

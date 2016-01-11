@@ -2,7 +2,9 @@ export default {
   routes: [
     'home',
     'property',
-    'login'
+    'chat',
+    'payment',
+    'docs'
   ],
   check(route) {
     if (this.routes.indexOf(route)<0) {

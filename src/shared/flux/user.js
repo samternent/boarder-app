@@ -8,7 +8,7 @@ export default Flux.createStore({
     token: null,
     expires: null,
     id: null,
-    user: {},
+    user: null,
     email: null,
     logged_in: false
   },
@@ -36,6 +36,24 @@ export default Flux.createStore({
 
           localStorage.setItem('jwt', JSON.stringify(user_state))
           this.setState(user_state);
+        })
+      },
+      logout() {
+        axios({
+          crossOrigin: true,
+          url: 'http://boarder-api.herokuapp.com/auth/logout',
+          method: 'post'
+        })
+        .then((resp) => {
+          localStorage.removeItem('jwt')
+          this.setState({
+            token: null,
+            expires: null,
+            id: null,
+            user: {},
+            email: null,
+            logged_in: false
+          });
         })
       }
     },

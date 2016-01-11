@@ -2,7 +2,9 @@ import React from 'react'
 
 import Home from './layouts/home';
 import Property from './layouts/property';
-import Login from './layouts/login';
+import Payment from './layouts/payment';
+import Chat from './layouts/chat';
+import Docs from './layouts/docs';
 
 // Styles
 // import './style'
@@ -15,11 +17,14 @@ import UserStore from './flux/user'
 // Components
 import Nav from './components/nav';
 import Tray from './components/tray';
+import Login from './components/login';
 //
 var layouts = {
   'home'    : Home,
   'property': Property,
-  'login': Login
+  'payment': Payment,
+  'chat': Chat,
+  'docs': Docs
 };
 
 // Component
@@ -48,10 +53,15 @@ export default class Archie extends React.Component {
     render() {
       const Layout = layouts[ this.state.app.route ]
       return (
-        <div className=''>
+        <div className='main-wrapper'>
           <Nav currentRoute={ this.state.route } user={ this.state.user }/>
           <Tray />
-          <Layout />
+          <div className='wrapper'>
+            <Login user={ this.state.user } />
+            <div className='layout'>
+              <Layout />
+            </div>
+          </div>
         </div>
       );
     }

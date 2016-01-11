@@ -13,11 +13,26 @@ export default class Tray extends React.Component {
 
   render() {
     return (
-        <div className='archie-tray'>
+        <div className='tray'>
           <ul className='archie-tray__items'>
             <li className='archie-tray__item'>
               <LocalLink route='property' currentRoute={ this.props.currentRoute }>
+                <i className='fa fa-home white' />
+              </LocalLink>
+            </li>
+            <li className='archie-tray__item'>
+              <LocalLink route='payment' currentRoute={ this.props.currentRoute }>
                 <i className='fa fa-gbp white' />
+              </LocalLink>
+            </li>
+            <li className='archie-tray__item'>
+              <LocalLink route='docs' currentRoute={ this.props.currentRoute }>
+                <i className='fa fa-file-text-o white' />
+              </LocalLink>
+            </li>
+            <li className='archie-tray__item'>
+              <LocalLink route='chat' currentRoute={ this.props.currentRoute }>
+                <i className='fa fa-comment white' />
               </LocalLink>
             </li>
           </ul>
