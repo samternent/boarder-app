@@ -79,7 +79,7 @@
 
 	var routes = __webpack_require__(6)(app);
 
-	var port = process.env.PORT || 5000;
+	var port = server.listen(process.env.PORT || 3000);
 
 	app.listen(port, function () {
 	  console.log('Node app is running on port', port);
