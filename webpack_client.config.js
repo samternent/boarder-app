@@ -22,10 +22,7 @@ module.exports = {
           {
             test: /\.js$/,
             exclude: /(node_modules)/,
-            loader: "babel-loader",
-            query: {
-              presets: []
-            }
+            loader: "babel-loader"
           },
           {
             test: /\.scss$/,
