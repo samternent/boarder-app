@@ -14,7 +14,7 @@ app.use('/assets', express.static(__dirname + '/public'));
 
 var routes = require('./routes')(app);
 
-var port = process.env.PORT || 5000;
+var port = server.listen(process.env.PORT || 3000);
 
 app.listen(port, function() {
   console.log('Node app is running on port', port);
