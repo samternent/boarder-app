@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 app.use('/assets', express.static(__dirname + '/public'));
 
 var routes = require('./routes')(app);
-console.log(process.env.PORT);
-app.set('port', (process.env.PORT || 5000));
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+var port = process.env.PORT || 5000;
+
+app.listen(port, function() {
+  console.log('Node app is running on port', port);
 });
