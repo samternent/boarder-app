@@ -18,7 +18,6 @@ export default Flux.createStore({
     },
     server: {
       handleProperties(resp) {
-        console.log(resp.data);
         this.setState({properties: resp.data})
       }
     }

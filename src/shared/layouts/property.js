@@ -5,7 +5,6 @@ import React from 'react'
 
 // Flux
 import Properties from '../apps/properties'
-import LocalLink from '../components/local_link'
 
 // Components
 
@@ -22,7 +21,6 @@ export default class Home extends React.Component {
     return (
         <div className='contain content'>
            <Properties />
-           <LocalLink route='property111'>fake link to redirect home</LocalLink>
         </div>
       );
     }

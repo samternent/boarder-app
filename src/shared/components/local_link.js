@@ -19,10 +19,16 @@ export default class LocalLink extends React.Component {
     AppStore.Actions.setRoute(this.props.route);
   }
 
+  isActive() {
+    if (this.props.route === this.props.currentRoute) {
+      return 'local-link--is-active'
+    }
+  }
+
   render() {
     return (
         <a
-          className={ this.props.className }
+          className={ `local-link ${this.isActive()}` }
           href={ this.props.route }
           onClick={ this._handleClick.bind(this) }
         >

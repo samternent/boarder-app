@@ -5,7 +5,17 @@
   box-sizing: border-box; }
 
 .red {
-  color: #BF5D5E; }
+  color: #477998;
+}
+.blue {
+  color: #BF5D5E;
+}
+.green {
+  color: #35CE8D;
+}
+.white {
+  color: #fff;
+}
 
 h1, h2, h3, h4, h5 {
   font-weight: 800; }
@@ -14,19 +24,29 @@ body {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  color: #334431; }
+  color: #291F1E; }
+
+.archie-menu-items {
+      line-height: 2em;
+  float: right; }
+.archie-menu {
+  top: 0;
+  bottom: auto; }
 
 .contain {
-  max-width: 960px;
+  max-width: 1024px;
   margin: 0 auto; }
 
 .content {
   padding: 1em;
-  min-height: 1000px;
-  font-weight: 200; }
+  font-weight: 200;
+  margin-top: 2em;
+}
 
 .archie__logo {
-  float: left; }
+  float: left;
+  line-height: 2em;
+}
 
 .archie__logo__text {
   display: none; }
@@ -39,8 +59,8 @@ body {
   box-shadow: 0px 1px 3px 1px rgba(51, 68, 49, 0.3), inset rgba(255, 255, 255, 0.2) 0 1px 1px;
   left: 0;
   right: 0;
-  bottom: 0;
-  background-color: rgba(216, 215, 211, 0.9);
+  top: 0;
+  background-color: white;
   overflow: auto;
   position: fixed;
   font-family: 'Raleway', sans-serif;
@@ -49,7 +69,6 @@ body {
   color: #334431; }
 
 .archie-menu-items {
-  float: left;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -89,8 +108,71 @@ body {
     margin-top: 3em; }
   .archie__logo {
     font-size: 2em;
-    margin-top: -1em; }
+    margin-top: -0.5em;
+  }
   .archie-menu {
-    height: 3em;
-    padding-top: 1em; } }
+    height: 3em; } }
 
+
+.properties {
+  text-align: center;
+}
+.property {
+  margin: 1em;
+  text-align: center;
+  border: 1px solid #477998;
+  display: inline-block;
+  width: calc(50%-2em);
+  background-color: #477998;
+  box-shadow: 0px 1px 3px 1px rgba(51, 68, 49, 0.3), inset rgba(255, 255, 255, 0.2) 0 1px 1px;
+}
+.property__title {
+  background-color: white;
+  padding: 0.5em;
+}
+.property__rooms {
+  background-color: white;
+  padding: 0.5em;
+}
+.property__rent {
+  background-color: white;
+  padding: 0.5em;
+
+}
+
+
+a.local-link {
+  position: relative;
+}
+a.local-link--is-active {
+  font-weight: bold;
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: red;
+  }
+}
+
+
+.archie-tray {
+  background-color: #477998;
+  border-right: 2px groove #c3c3c3;
+  /*width: 1em;*/
+  height: 100vh;
+  position: fixed;
+}
+.archie-tray__items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+.archie-tray__item {
+  margin: 0.5em;
+  font-size: 2em;
+  color: white;
+}

@@ -1,7 +1,8 @@
 export default {
   routes: [
     'home',
-    'property'
+    'property',
+    'login'
   ],
   check(route) {
     if (this.routes.indexOf(route)<0) {

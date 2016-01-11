@@ -19719,6 +19719,10 @@
 
 	var _layoutsProperty2 = _interopRequireDefault(_layoutsProperty);
 
+	var _layoutsLogin = __webpack_require__(196);
+
+	var _layoutsLogin2 = _interopRequireDefault(_layoutsLogin);
+
 	// Styles
 	// import './style'
 
@@ -19732,16 +19736,25 @@
 
 	var _fluxApp2 = _interopRequireDefault(_fluxApp);
 
+	var _fluxUser = __webpack_require__(197);
+
+	var _fluxUser2 = _interopRequireDefault(_fluxUser);
+
 	// Components
 
 	var _componentsNav = __webpack_require__(194);
 
 	var _componentsNav2 = _interopRequireDefault(_componentsNav);
 
+	var _componentsTray = __webpack_require__(195);
+
+	var _componentsTray2 = _interopRequireDefault(_componentsTray);
+
 	//
 	var layouts = {
 	  'home': _layoutsHome2['default'],
-	  'property': _layoutsProperty2['default']
+	  'property': _layoutsProperty2['default'],
+	  'login': _layoutsLogin2['default']
 	};
 
 	// Component
@@ -19753,7 +19766,10 @@
 	    _classCallCheck(this, Archie);
 
 	    _get(Object.getPrototypeOf(Archie.prototype), 'constructor', this).call(this, props);
-	    this.state = _fluxApp2['default'].getState();
+	    this.state = {
+	      app: _fluxApp2['default'].getState(),
+	      user: _fluxUser2['default'].getState()
+	    };
 	  }
 
 	  _createClass(Archie, [{
@@ -19761,17 +19777,23 @@
 	    value: function componentDidMount() {
 	      var that = this;
 	      _fluxApp2['default'].addChangeListener(function () {
-	        that.setState(_fluxApp2['default'].getState());
+	        that.setState({ app: _fluxApp2['default'].getState() });
 	      });
+	      _fluxUser2['default'].addChangeListener(function () {
+	        that.setState({ user: _fluxUser2['default'].getState() });
+	      });
+
+	      _fluxUser2['default'].Actions.getUserSession();
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var Layout = layouts[this.state.route];
+	      var Layout = layouts[this.state.app.route];
 	      return _react2['default'].createElement(
 	        'div',
 	        { className: '' },
-	        _react2['default'].createElement(_componentsNav2['default'], null),
+	        _react2['default'].createElement(_componentsNav2['default'], { currentRoute: this.state.route, user: this.state.user }),
+	        _react2['default'].createElement(_componentsTray2['default'], null),
 	        _react2['default'].createElement(Layout, null)
 	      );
 	    }
@@ -19807,9 +19829,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	// Styles
-	// import './style'
-
 	// Flux
 
 	var _appsProperties = __webpack_require__(162);
@@ -19840,11 +19859,7 @@
 	            return _react2['default'].createElement(
 	                'div',
 	                { className: 'contain content' },
-	                _react2['default'].createElement(
-	                    _componentsLocal_link2['default'],
-	                    { route: 'property' },
-	                    'Property page'
-	                )
+	                'This is the home page, I\'ll use this for a dashboard'
 	            );
 	        }
 	    }]);
@@ -19920,20 +19935,21 @@
 	      return this.state.properties.map(function (property, i) {
 	        return _react2['default'].createElement(
 	          'div',
-	          { key: 'property_' + i },
+	          { key: 'property_' + i, className: 'property' },
 	          _react2['default'].createElement(
-	            'h2',
-	            null,
+	            'h3',
+	            { className: 'property__title' },
 	            property.name
 	          ),
+	          _react2['default'].createElement('img', { className: 'property__image', src: 'http://placehold.it/350x150' }),
 	          _react2['default'].createElement(
 	            'div',
-	            null,
+	            { className: 'property__rooms' },
 	            property.rooms + ' rooms'
 	          ),
 	          _react2['default'].createElement(
 	            'div',
-	            null,
+	            { className: 'property__rent' },
 	            '£' + property.rent + ' pcm'
 	          )
 	        );
@@ -19945,6 +19961,11 @@
 	      return _react2['default'].createElement(
 	        'div',
 	        { className: 'properties' },
+	        _react2['default'].createElement(
+	          'h2',
+	          null,
+	          'My Properties'
+	        ),
 	        this.renderProperties()
 	      );
 	    }
@@ -19991,7 +20012,6 @@
 	    },
 	    server: {
 	      handleProperties: function handleProperties(resp) {
-	        console.log(resp.data);
 	        this.setState({ properties: resp.data });
 	      }
 	    }
@@ -21968,12 +21988,19 @@
 	      _fluxApp2['default'].Actions.setRoute(this.props.route);
 	    }
 	  }, {
+	    key: 'isActive',
+	    value: function isActive() {
+	      if (this.props.route === this.props.currentRoute) {
+	        return 'local-link--is-active';
+	      }
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2['default'].createElement(
 	        'a',
 	        {
-	          className: this.props.className,
+	          className: 'local-link ' + this.isActive(),
 	          href: this.props.route,
 	          onClick: this._handleClick.bind(this)
 	        },
@@ -22040,7 +22067,7 @@
 	  value: true
 	});
 	exports['default'] = {
-	  routes: ['home', 'property'],
+	  routes: ['home', 'property', 'login'],
 	  check: function check(route) {
 	    if (this.routes.indexOf(route) < 0) {
 	      return 'home';
@@ -22084,10 +22111,6 @@
 
 	var _appsProperties2 = _interopRequireDefault(_appsProperties);
 
-	var _componentsLocal_link = __webpack_require__(190);
-
-	var _componentsLocal_link2 = _interopRequireDefault(_componentsLocal_link);
-
 	// Components
 
 	// Component
@@ -22108,12 +22131,7 @@
 	            return _react2['default'].createElement(
 	                'div',
 	                { className: 'contain content' },
-	                _react2['default'].createElement(_appsProperties2['default'], null),
-	                _react2['default'].createElement(
-	                    _componentsLocal_link2['default'],
-	                    { route: 'property111' },
-	                    'fake link to redirect home'
-	                )
+	                _react2['default'].createElement(_appsProperties2['default'], null)
 	            );
 	        }
 	    }]);
@@ -22167,10 +22185,30 @@
 	  }
 
 	  _createClass(Nav, [{
-	    key: '_handleClick',
-	    value: function _handleClick(e) {
-	      e.preventDefault();
-	      app.Actions.setRoute(this.props.route);
+	    key: 'renderLogin',
+	    value: function renderLogin() {
+	      if (this.props.user.logged_in) {
+	        return _react2['default'].createElement(
+	          'div',
+	          null,
+	          _react2['default'].createElement('i', { className: 'fa fa-user green archie__logo__icon' }),
+	          _react2['default'].createElement(
+	            'span',
+	            { className: 'archie__logo__text' },
+	            'Logged in as ' + this.props.user.email
+	          )
+	        );
+	      }
+	      return _react2['default'].createElement(
+	        _local_link2['default'],
+	        { route: 'login', currentRoute: this.props.currentRoute },
+	        _react2['default'].createElement('i', { className: 'fa fa-user blue archie__logo__icon' }),
+	        _react2['default'].createElement(
+	          'span',
+	          { className: 'archie__logo__text' },
+	          'Login'
+	        )
+	      );
 	    }
 	  }, {
 	    key: 'render',
@@ -22186,13 +22224,22 @@
 	            { className: 'archie__logo' },
 	            _react2['default'].createElement(
 	              _local_link2['default'],
-	              { route: 'home' },
-	              _react2['default'].createElement('i', { className: 'fa fa-heart red archie__logo__icon' }),
+	              { route: 'home', currentRoute: this.props.currentRoute },
+	              _react2['default'].createElement('i', { className: 'fa fa-home red archie__logo__icon' }),
 	              _react2['default'].createElement(
 	                'span',
 	                { className: 'archie__logo__text' },
-	                'boarder'
+	                'boarder app'
 	              )
+	            )
+	          ),
+	          _react2['default'].createElement(
+	            'ul',
+	            { className: 'archie-menu-items' },
+	            _react2['default'].createElement(
+	              'li',
+	              { className: 'archie-menu-item' },
+	              this.renderLogin()
 	            )
 	          )
 	        )
@@ -22204,6 +22251,235 @@
 	})(_react2['default'].Component);
 
 	exports['default'] = Nav;
+
+	Nav.propTypes = { user: _react2['default'].PropTypes.object };
+	Nav.defaultProps = { user: {} };
+	module.exports = exports['default'];
+
+/***/ },
+/* 195 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	// Components
+
+	var _local_link = __webpack_require__(190);
+
+	var _local_link2 = _interopRequireDefault(_local_link);
+
+	// Component
+
+	var Tray = (function (_React$Component) {
+	  _inherits(Tray, _React$Component);
+
+	  function Tray(props) {
+	    _classCallCheck(this, Tray);
+
+	    _get(Object.getPrototypeOf(Tray.prototype), 'constructor', this).call(this, props);
+	    this.state = {};
+	  }
+
+	  _createClass(Tray, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'archie-tray' },
+	        _react2['default'].createElement(
+	          'ul',
+	          { className: 'archie-tray__items' },
+	          _react2['default'].createElement(
+	            'li',
+	            { className: 'archie-tray__item' },
+	            _react2['default'].createElement(
+	              _local_link2['default'],
+	              { route: 'property', currentRoute: this.props.currentRoute },
+	              _react2['default'].createElement('i', { className: 'fa fa-gbp white' })
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Tray;
+	})(_react2['default'].Component);
+
+	exports['default'] = Tray;
+	module.exports = exports['default'];
+
+/***/ },
+/* 196 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	// Flux
+
+	var _fluxUser = __webpack_require__(197);
+
+	var _fluxUser2 = _interopRequireDefault(_fluxUser);
+
+	// Component
+
+	var Login = (function (_React$Component) {
+	  _inherits(Login, _React$Component);
+
+	  function Login(props) {
+	    _classCallCheck(this, Login);
+
+	    _get(Object.getPrototypeOf(Login.prototype), 'constructor', this).call(this, props);
+	    this.state = {
+	      email: null,
+	      password: null
+	    };
+	  }
+
+	  _createClass(Login, [{
+	    key: 'updateEmail',
+	    value: function updateEmail(e) {
+	      this.setState({
+	        email: e.target.value
+	      });
+	    }
+	  }, {
+	    key: 'updatePassword',
+	    value: function updatePassword(e) {
+	      this.setState({
+	        password: e.target.value
+	      });
+	    }
+	  }, {
+	    key: 'handleLogin',
+	    value: function handleLogin(e) {
+	      e.preventDefault();
+	      _fluxUser2['default'].Actions.login(this.state);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'contain content' },
+	        _react2['default'].createElement(
+	          'form',
+	          null,
+	          _react2['default'].createElement('input', { onChange: this.updateEmail.bind(this), type: 'text', placeholder: 'Email' }),
+	          _react2['default'].createElement('input', { onChange: this.updatePassword.bind(this), type: 'password', placeholder: 'Password' }),
+	          _react2['default'].createElement(
+	            'button',
+	            { onClick: this.handleLogin.bind(this) },
+	            'Login'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Login;
+	})(_react2['default'].Component);
+
+	exports['default'] = Login;
+	module.exports = exports['default'];
+
+/***/ },
+/* 197 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	var _tbgFluxFactory = __webpack_require__(164);
+
+	var _tbgFluxFactory2 = _interopRequireDefault(_tbgFluxFactory);
+
+	var _axios = __webpack_require__(173);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	exports['default'] = _tbgFluxFactory2['default'].createStore({
+	  name: 'user',
+	  data: {
+	    token: null,
+	    expires: null,
+	    id: null,
+	    user: {},
+	    email: null,
+	    logged_in: false
+	  },
+	  actions: {
+	    view: {
+	      getUserSession: function getUserSession() {
+	        var user_state = JSON.parse(localStorage.getItem('jwt'));
+	        this.setState(user_state);
+	      },
+	      login: function login(params) {
+	        var _this = this;
+
+	        (0, _axios2['default'])({
+	          crossOrigin: true,
+	          url: 'http://localhost:1337/auth/login',
+	          method: 'post',
+	          data: params
+	        }).then(function (resp) {
+	          var user_state = {
+	            token: resp.data.token,
+	            expires: resp.data.expires,
+	            id: resp.data.user.id,
+	            email: resp.data.user.auth.email,
+	            logged_in: true
+	          };
+
+	          localStorage.setItem('jwt', JSON.stringify(user_state));
+	          _this.setState(user_state);
+	        });
+	      }
+	    },
+	    server: {}
+	  }
+	});
 	module.exports = exports['default'];
 
 /***/ }

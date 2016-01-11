@@ -27,17 +27,21 @@ export default class Gallery extends React.Component {
 
     renderProperties() {
       return this.state.properties.map((property, i) => {
-        return <div key={ `property_${i}` }>
-          <h2>{ property.name }</h2>
-          <div>{ `${property.rooms} rooms` }</div>
-          <div>{ `£${property.rent} pcm` }</div>
-        </div>
+        return (
+          <div key={ `property_${i}` } className='property' >
+            <h3 className='property__title' >{ property.name }</h3>
+            <img className='property__image' src='http://placehold.it/350x150' />
+            <div className='property__rooms'>{ `${property.rooms} rooms` }</div>
+            <div className='property__rent'>{ `£${property.rent} pcm` }</div>
+          </div>
+        );
       })
     }
     render() {
       return (
           <div className='properties'>
-           { this.renderProperties() }
+            <h2>My Properties</h2>
+            { this.renderProperties() }
           </div>
         );
       }

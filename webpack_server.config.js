@@ -23,7 +23,7 @@ module.exports = {
       filename: 'bundle_[name].js'
   },
   resolve: {
-      extensions: ['', '.js', '.scss', '.css'],
+      extensions: ['', '.js'],
       alias: {
         "react": __dirname + '/node_modules/react'
       }
@@ -34,15 +34,8 @@ module.exports = {
             test: /\.js$/,
             exclude: /(node_modules)/,
             loader: "babel-loader"
-          },
-          {
-            test: /\.scss$/,
-            loader: 'style!css!sass'
           }
         ]
-  },
-  devServer: {
-      contentBase: "./public"
   },
   externals: nodeModules,
   plugins: [

@@ -11,9 +11,19 @@ export default class Nav extends React.Component {
       };
   }
 
-  _handleClick (e) {
-    e.preventDefault();
-    app.Actions.setRoute(this.props.route);
+  renderLogin() {
+    if (this.props.user.logged_in) {
+      return <div>
+        <i className='fa fa-user green archie__logo__icon' />
+        <span className='archie__logo__text'>{ `Logged in as ${this.props.user.email}` }</span>
+      </div>
+    }
+    return (
+      <LocalLink route='login' currentRoute={ this.props.currentRoute }>
+        <i className='fa fa-user blue archie__logo__icon' />
+        <span className='archie__logo__text'>Login</span>
+      </LocalLink>
+    );
   }
 
   render() {
@@ -22,14 +32,22 @@ export default class Nav extends React.Component {
           <div className='contain'>
             <div className='archie__logo'>
 
-              <LocalLink route='home'>
-                <i className='fa fa-heart red archie__logo__icon' />
-                <span className='archie__logo__text'>boarder</span>
+              <LocalLink route='home' currentRoute={ this.props.currentRoute }>
+                <i className='fa fa-home red archie__logo__icon' />
+                <span className='archie__logo__text'>boarder app</span>
               </LocalLink>
 
             </div>
+            <ul className='archie-menu-items'>
+              <li className='archie-menu-item'>
+                { this.renderLogin() }
+              </li>
+            </ul>
           </div>
         </div>
       );
     }
 }
+
+Nav.propTypes = { user: React.PropTypes.object };
+Nav.defaultProps = { user: {} };

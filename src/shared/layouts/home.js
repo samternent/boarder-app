@@ -1,7 +1,4 @@
-import React from 'react'
-
-// Styles
-// import './style'
+import React from 'react';
 
 // Flux
 import Properties from '../apps/properties'
@@ -21,7 +18,7 @@ export default class Home extends React.Component {
   render() {
     return (
         <div className='contain content'>
-           <LocalLink route='property'>Property page</LocalLink>
+           This is the home page, I'll use this for a dashboard
         </div>
       );
     }

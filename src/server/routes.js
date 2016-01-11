@@ -1,4 +1,5 @@
 import React from 'react';
+import { renderToString } from 'react-dom/server'
 
 import AppStore from '../shared/flux/app';
 import App from '../shared/app';
@@ -7,9 +8,9 @@ import routes from '../shared/routes';
 
 var myReactRoute = function (res, route) {
   route = routes.check(route);
-  
+
   AppStore.setState({ route: route });
-  var app = React.renderToString( <App /> );
+  var app = renderToString( <App /> );
 
   res.render('index.ejs', {
       app   : app,
