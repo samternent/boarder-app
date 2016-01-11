@@ -78,11 +78,11 @@
 	app.use('/assets', _express2['default']['static'](__dirname + '/public'));
 
 	var routes = __webpack_require__(6)(app);
-	console.log(process.env.PORT);
-	app.set('port', process.env.PORT || 5000);
 
-	app.listen(app.get('port'), function () {
-	  console.log('Node app is running on port', app.get('port'));
+	var port = process.env.PORT || 5000;
+
+	app.listen(port, function () {
+	  console.log('Node app is running on port', port);
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, "/", __webpack_require__(2)))
 
