@@ -200,6 +200,7 @@ body {
   text-align: center;
 }
 .property {
+  max-width: 98%;
   margin: 1%;
   text-align: center;
   border: 1px solid #477998;
@@ -219,6 +220,9 @@ body {
   background-color: white;
   padding: 0.5em;
 
+}
+.property__image {
+  width: 100%;
 }
 
 
