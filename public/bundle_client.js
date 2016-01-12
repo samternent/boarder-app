@@ -22532,7 +22532,7 @@
 	          _react2.default.createElement('i', { className: 'fa fa-user green archie__logo__icon' }),
 	          _react2.default.createElement(
 	            'span',
-	            { className: 'archie__logo__text' },
+	            { className: 'archie__logo__text--logout' },
 	            'logout ' + this.props.user.email
 	          )
 	        );
@@ -22540,12 +22540,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement('i', { className: 'fa fa-user red archie__logo__icon' }),
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'archie__logo__text' },
-	          'Login'
-	        )
+	        _react2.default.createElement('i', { className: 'fa fa-user red archie__logo__icon' })
 	      );
 	    }
 	  }, {

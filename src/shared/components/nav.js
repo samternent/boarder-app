@@ -21,14 +21,13 @@ export default class Nav extends React.Component {
       return (
         <div className='pointer' onClick={ this.handleLogoutClick.bind(this) }>
           <i className='fa fa-user green archie__logo__icon' />
-          <span className='archie__logo__text' >{ `logout ${this.props.user.email}` }</span>
+          <span className='archie__logo__text--logout' >{ `logout ${this.props.user.email}` }</span>
         </div>
       );
     }
     return (
       <div>
         <i className='fa fa-user red archie__logo__icon' />
-        <span className='archie__logo__text'>Login</span>
       </div>
     );
   }

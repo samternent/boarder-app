@@ -121,8 +121,10 @@ body {
   float: right;
 }
 
-.archie__logo__text {
+.archie__logo__text--logout {
   display: none;
+}
+.archie__logo__text {
 }
 
 .archie__logo__icon {
@@ -161,6 +163,7 @@ body {
   overflow: auto;
   font-weight: 100;
   color: #334431;
+  border-bottom: 5px solid #477998;
 }
 
 .archie-menu-items {
@@ -197,11 +200,10 @@ body {
   text-align: center;
 }
 .property {
-  margin: 1em;
+  margin: 1%;
   text-align: center;
   border: 1px solid #477998;
   display: inline-block;
-  width: calc(50%-2em);
   background-color: #477998;
   box-shadow: 0px 1px 3px 1px rgba(51, 68, 49, 0.3), inset rgba(255, 255, 255, 0.2) 0 1px 1px;
 }
@@ -254,6 +256,7 @@ a.local-link--is-active {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  text-align: center;
 
 }
 .archie-tray__item {
