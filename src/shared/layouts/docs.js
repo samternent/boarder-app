@@ -20,13 +20,6 @@ export default class Docs extends React.Component {
     return (
         <div className='contain content'>
            <h2>Documents</h2>
-           <p>
-             Here you can upload all important documents you need.
-           </p>
-           <p>
-             You can tag all documents and images to categories for filters and property linking.
-             Use this to store Right To Rent etc.
-           </p>
         </div>
       );
     }

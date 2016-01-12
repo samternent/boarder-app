@@ -19839,7 +19839,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -19869,29 +19869,33 @@
 	// Component
 
 	var Home = function (_React$Component) {
-	    _inherits(Home, _React$Component);
+	  _inherits(Home, _React$Component);
 
-	    function Home(props) {
-	        _classCallCheck(this, Home);
+	  function Home(props) {
+	    _classCallCheck(this, Home);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
 
-	        _this.state = {};
-	        return _this;
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(Home, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'contain content' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Home'
+	        )
+	      );
 	    }
+	  }]);
 
-	    _createClass(Home, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'contain content' },
-	                'This is the home page, I\'ll use this for a dashboard'
-	            );
-	        }
-	    }]);
-
-	    return Home;
+	  return Home;
 	}(_react2.default.Component);
 
 	exports.default = Home;
@@ -19989,11 +19993,6 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'properties' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'My Properties'
-	        ),
 	        this.renderProperties()
 	      );
 	    }
@@ -22112,7 +22111,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -22141,29 +22140,45 @@
 	// Component
 
 	var Home = function (_React$Component) {
-	    _inherits(Home, _React$Component);
+	  _inherits(Home, _React$Component);
 
-	    function Home(props) {
-	        _classCallCheck(this, Home);
+	  function Home(props) {
+	    _classCallCheck(this, Home);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
 
-	        _this.state = {};
-	        return _this;
+	    _this.state = {};
+	    return _this;
+	  }
+
+	  _createClass(Home, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'contain content' },
+	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          'Property'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'This component hits ',
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'http://boarder-api.herokuapp.com/property' },
+	            'boarder-api.herokuapp.com'
+	          ),
+	          ' to get some property data'
+	        ),
+	        _react2.default.createElement(_properties2.default, null)
+	      );
 	    }
+	  }]);
 
-	    _createClass(Home, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'contain content' },
-	                _react2.default.createElement(_properties2.default, null)
-	            );
-	        }
-	    }]);
-
-	    return Home;
+	  return Home;
 	}(_react2.default.Component);
 
 	exports.default = Home;
@@ -22177,7 +22192,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -22202,43 +22217,33 @@
 	// Component
 
 	var Payment = function (_React$Component) {
-	  _inherits(Payment, _React$Component);
+	    _inherits(Payment, _React$Component);
 
-	  function Payment(props) {
-	    _classCallCheck(this, Payment);
+	    function Payment(props) {
+	        _classCallCheck(this, Payment);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Payment).call(this, props));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Payment).call(this, props));
 
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(Payment, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: '' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Payments'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'You can manage all of your payments here, view a payment history, set payment date.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'We\'ll have payments set up with stripe. Tennants can set up a recurring paymeent on the day of their choice.'
-	        )
-	      );
+	        _this.state = {};
+	        return _this;
 	    }
-	  }]);
 
-	  return Payment;
+	    _createClass(Payment, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: '' },
+	                _react2.default.createElement(
+	                    'h2',
+	                    null,
+	                    'Payments'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Payment;
 	}(_react2.default.Component);
 
 	exports.default = Payment;
@@ -22252,7 +22257,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -22277,38 +22282,33 @@
 	// Component
 
 	var Chat = function (_React$Component) {
-	  _inherits(Chat, _React$Component);
+	    _inherits(Chat, _React$Component);
 
-	  function Chat(props) {
-	    _classCallCheck(this, Chat);
+	    function Chat(props) {
+	        _classCallCheck(this, Chat);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Chat).call(this, props));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Chat).call(this, props));
 
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(Chat, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'contain content' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Chat'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Chat client; chat with your tennants, track home issues, requests... or just check your tennant is happy :)'
-	        )
-	      );
+	        _this.state = {};
+	        return _this;
 	    }
-	  }]);
 
-	  return Chat;
+	    _createClass(Chat, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'contain content' },
+	                _react2.default.createElement(
+	                    'h2',
+	                    null,
+	                    'Chat'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Chat;
 	}(_react2.default.Component);
 
 	exports.default = Chat;
@@ -22322,7 +22322,7 @@
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -22347,43 +22347,33 @@
 	// Component
 
 	var Docs = function (_React$Component) {
-	  _inherits(Docs, _React$Component);
+	    _inherits(Docs, _React$Component);
 
-	  function Docs(props) {
-	    _classCallCheck(this, Docs);
+	    function Docs(props) {
+	        _classCallCheck(this, Docs);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Docs).call(this, props));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Docs).call(this, props));
 
-	    _this.state = {};
-	    return _this;
-	  }
-
-	  _createClass(Docs, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'contain content' },
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          'Documents'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Here you can upload all important documents you need.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'You can tag all documents and images to categories for filters and property linking. Use this to store Right To Rent etc.'
-	        )
-	      );
+	        _this.state = {};
+	        return _this;
 	    }
-	  }]);
 
-	  return Docs;
+	    _createClass(Docs, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'contain content' },
+	                _react2.default.createElement(
+	                    'h2',
+	                    null,
+	                    'Documents'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Docs;
 	}(_react2.default.Component);
 
 	exports.default = Docs;

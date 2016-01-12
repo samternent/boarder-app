@@ -20,12 +20,6 @@ export default class Payment extends React.Component {
     return (
         <div className=''>
            <h2>Payments</h2>
-           <p>
-             You can manage all of your payments here, view a payment history, set payment date.
-           </p>
-           <p>
-             We'll have payments set up with stripe. Tennants can set up a recurring paymeent on the day of their choice.
-           </p>
         </div>
       );
     }

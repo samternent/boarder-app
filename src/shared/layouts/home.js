@@ -18,7 +18,7 @@ export default class Home extends React.Component {
   render() {
     return (
         <div className='contain content'>
-           This is the home page, I'll use this for a dashboard
+          <h2>Home</h2>
         </div>
       );
     }

@@ -40,7 +40,6 @@ export default class Gallery extends React.Component {
     render() {
       return (
           <div className='properties'>
-            <h2>My Properties</h2>
             { this.renderProperties() }
           </div>
         );
