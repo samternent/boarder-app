@@ -1,4 +1,8 @@
-import React from 'react'
+import React from 'react';
+import canUseDOM from 'can-use-dom'
+
+// Styles
+if (canUseDOM) { require('../../style/tray') }
 
 // Components
 import LocalLink from './local_link'

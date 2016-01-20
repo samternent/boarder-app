@@ -21,9 +21,6 @@ export default class Home extends React.Component {
     return (
         <div className='contain content'>
           <h2>Property</h2>
-          <p>
-            This component hits <a href="http://boarder-api.herokuapp.com/property">boarder-api.herokuapp.com</a> to get some property data
-          </p>
           <Properties />
         </div>
       );

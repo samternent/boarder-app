@@ -8,9 +8,11 @@ export default Flux.createStore({
   actions: {
     view  : {
       getProperties() {
+        console.log(Flux.getStore('user').data.token)
         axios({
           crossOrigin: true,
-          url: 'http://boarder-api.herokuapp.com/property',
+          url: 'http://localhost:1337/property',
+          // url: 'http://boarder-api.herokuapp.com/property',
           method: 'get'
         })
         .then(this.Actions.handleProperties)

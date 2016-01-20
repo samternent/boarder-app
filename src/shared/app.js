@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import canUseDOM from 'can-use-dom';
 
 import Home from './layouts/home';
 import Property from './layouts/property';
@@ -7,12 +8,14 @@ import Chat from './layouts/chat';
 import Docs from './layouts/docs';
 
 // Styles
-// import './style'
+if (canUseDOM) { require('../style/app'); }
 
 // Flux
 import flux from 'tbg-flux-factory'
 import AppStore from './flux/app'
 import UserStore from './flux/user'
+
+
 
 // Components
 import Nav from './components/nav';
@@ -59,7 +62,7 @@ export default class Archie extends React.Component {
           <div className='wrapper'>
             <Login user={ this.state.user } />
             <div className='layout'>
-              <Layout />
+              <Layout key={ this.state.app.route } />
             </div>
           </div>
         </div>

@@ -1,0 +1,37 @@
+// login
+.login {
+  background-color: #477998;
+  text-align: center;
+  padding: 1em;
+  border-bottom: 1px groov2 #291F1E;
+  box-shadow: inset 0px 1px 3px 1px rgba(51, 68, 49, 0.3), inset rgba(255, 255, 255, 0.2) 0 1px 1px;
+}
+.login__input {
+  width: 100%;
+  display: block;
+  padding: 0.5em;
+  padding: 0.5em;
+  margin: 0.5em auto;
+  border: 0;
+  background-color: #eee;
+}
+.login__input--submit {
+  color: white;
+  border: 0;
+  background-color: #477998;
+  margin-top: 2em;
+  border: 3px solid white;
+}
+
+
+
+@media all and (min-width: 640px) {
+  .login__input {
+    width: 90%;
+  }
+}
+@media all and (min-width: 960px) {
+    .login__input {
+      width: 60%;
+    }
+  }

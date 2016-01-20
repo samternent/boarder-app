@@ -1,4 +1,8 @@
 import React from 'react';
+import canUseDOM from 'can-use-dom'
+
+// Styles
+if (canUseDOM) { require('../../style/login') }
 
 // Flux
 import UserStore from '../flux/user'

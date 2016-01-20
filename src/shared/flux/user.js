@@ -21,7 +21,8 @@ export default Flux.createStore({
       login(params) {
         axios({
           crossOrigin: true,
-          url: 'http://boarder-api.herokuapp.com/auth/login',
+          url: 'http://localhost:1337/auth/login',
+          // url: 'http://boarder-api.herokuapp.com/auth/login',
           method: 'post',
           data: params
         })
@@ -41,7 +42,8 @@ export default Flux.createStore({
       logout() {
         axios({
           crossOrigin: true,
-          url: 'http://boarder-api.herokuapp.com/auth/logout',
+          url: 'http://localhost:1337/auth/logout',
+          // url: 'http://boarder-api.herokuapp.com/auth/logout',
           method: 'post'
         })
         .then((resp) => {

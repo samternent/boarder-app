@@ -1,4 +1,8 @@
-import React from 'react'
+import React from 'react';
+import canUseDOM from 'can-use-dom';
+
+// Styles
+if (canUseDOM) { require('../../style/nav'); }
 
 // Components
 import LocalLink from './local_link'
@@ -40,7 +44,7 @@ export default class Nav extends React.Component {
 
               <LocalLink route='home' currentRoute={ this.props.currentRoute }>
                 <i className='fa fa-compass blue archie__logo__icon' />
-                <span className='archie__logo__text'>boarder app</span>
+                <span className='archie__logo__text'></span>
               </LocalLink>
 
             </div>

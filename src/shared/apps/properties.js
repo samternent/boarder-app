@@ -20,6 +20,9 @@ export default class Gallery extends React.Component {
     componentWillMount() {
       PropertyStore.addChangeListener(this.doPropertyChange)
     }
+    componentWillUnmount() {
+      PropertyStore.removeChangeListener(this.doPropertyChange)
+    }
 
     handlePropertyChange() {
       this.setState(PropertyStore.getState())

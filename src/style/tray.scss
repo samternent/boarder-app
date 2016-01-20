@@ -1,0 +1,40 @@
+// tray
+.tray {
+ background-color: #291F1E;
+ position: fixed;
+ bottom: 0; left: 0;
+ right: 0;
+}
+.archie-tray__item {
+ margin: 0.5em;
+ font-size: 2em;
+ color: white;
+ display: inline-block;
+}
+.archie-tray__items {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+}
+
+
+
+
+@media all and (min-width: 640px) {
+  .tray {
+    background-color: #291F1E;
+    flex: 0 0 4em;
+    order: 1;
+    margin: 2.5em 0 0;
+    position: relative;
+  }
+}
+
+@media all and (min-width: 960px) {
+  .tray {
+    background-color: #291F1E;
+    margin: 3em 0 0;
+  }
+}
