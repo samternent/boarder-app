@@ -1,5 +1,5 @@
 
-.archie-menu {
+.menu {
   position: fixed;
   top: 0;
   bottom: auto;
@@ -7,38 +7,37 @@
   z-index: 3;
 }
 
-.archie__logo {
+.menu__logo {
   float: left;
 }
-.archie-menu-items {
+
+
+.menu__items {
   float: right;
 }
 
-.archie__logo__text--logout {
+.menu__logo__text--logout {
   display: none;
 }
-.archie__logo__text {
+.menu__logo__text {
 }
 
-.archie__logo__icon {
+.menu__logo__icon {
   margin-right: 1em;
 }
 
 @media all and (min-width: 960px) {
-  .archie__logo {
+  .menu__logo {
     font-size: 2em;
     line-height: 1em;
-  }
-  .archie-menu {
-    top: auto;
-    bottom: 0;
   }
 }
 
 
 @media all and (min-width: 640px) {
-  .archie-menu{
-    line-height: 2em}
+  .menu {
+    line-height: 2em
+  }
 }
 
 
@@ -46,20 +45,16 @@
 
 
 
-.archie-menu {
-  min-height: 2em;
-  box-shadow: 0px 1px 3px 1px rgba(51, 68, 49, 0.3), inset rgba(255, 255, 255, 0.2) 0 1px 1px;
-  left: 0;
-  right: 0;
-  top: 0;
-  background-color: white;
+.menu {
+  left: 0; right: 0; top: 0;
   overflow: auto;
   font-weight: 100;
   color: #334431;
-  border-bottom: 5px solid #477998;
+  background-color: white;
+  border-bottom: 1px groove #fef;
 }
 
-.archie-menu-items {
+.menu__items {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -67,38 +62,19 @@
   justify-content: space-around;
   list-style-type: none; }
 
-.archie__logo,
-.archie-menu-item {
-  transition: all 0.3s; }
-  .archie__logo:hover a,
-  .archie-menu-item:hover a {
+.menu__items__item {
+  padding: 0.25em 0.75em;
+}
+.menu__logo,
+.menu__items__item {
+  transition: all 0.3s;
+}
+.menu__logo:hover a,
+.menu__items__item:hover a {
     color: #1d261c; }
-  .archie__logo a,
-  .archie-menu-item a {
+  .menu__logo a,
+  .menu__items__item a {
     padding: 0.25em 0.75em;
     display: block;
     color: #334431;
     text-decoration: none; }
-
-@media all and (min-width: 640px) {
-  .archie__logo__text {
-    display: inline-block;
-  }
-  .archie-menu {
-    top: 0;
-    bottom: auto; } }
-a.local-link {
-  position: relative;
-}
-a.local-link--is-active {
-  font-weight: bold;
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0; left: 0;
-    height: 1px;
-    width: 100%;
-    background-color: red;
-  }
-}

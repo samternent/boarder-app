@@ -1,22 +1,37 @@
 // tray
 .tray {
- background-color: #291F1E;
+ background-color: #5F634F;
  position: fixed;
  bottom: 0; left: 0;
  right: 0;
 }
-.archie-tray__item {
- margin: 0.5em;
- font-size: 2em;
- color: white;
- display: inline-block;
+.tray__item {
+   padding: 0.5em;
+   font-size: 2em;
+   color: #000;
+   display: inline-block;
+   transition: all 0.3s;
+   a {
+     color: #fff;
+   }
+   &:hover {
+     background-color: #ccc;
+     a {
+       color: #5F634F;
+       &:hover {
+         color: darken(#5F634F,10);
+       }
+     }
+   }
 }
-.archie-tray__items {
+.tray__item__label {
+  display: none;
+}
+.tray__items {
   list-style-type: none;
   margin: 0;
   padding: 0;
   text-align: center;
-
 }
 
 
@@ -24,17 +39,46 @@
 
 @media all and (min-width: 640px) {
   .tray {
-    background-color: #291F1E;
     flex: 0 0 4em;
     order: 1;
     margin: 2.5em 0 0;
     position: relative;
   }
+  .tray__item {
+    display: block;
+  }
 }
 
 @media all and (min-width: 960px) {
   .tray {
-    background-color: #291F1E;
+    flex: 0 0 10em;
     margin: 3em 0 0;
+  }
+  .tray__items {
+    text-align: left;
+  }
+  .tray__item__label {
+    font-size: 0.75em;
+    margin-left: 1em;
+    display: inline;
+  }
+  .tray__item {
+     padding: 0.5em;
+     font-size: 1em;
+     color: #000;
+     display: block;
+     a {
+       color: #fff;
+       text-decoration: none;
+     }
+     &:hover {
+       background-color: #ccc;
+       a {
+         color: #5F634F;
+         &:hover {
+           color: darken(#5F634F,10);
+         }
+       }
+     }
   }
 }

@@ -24,8 +24,8 @@ export default class Nav extends React.Component {
     if (this.props.user.logged_in) {
       return (
         <div className='pointer' onClick={ this.handleLogoutClick.bind(this) }>
-          <i className='fa fa-user green archie__logo__icon' />
-          <span className='archie__logo__text--logout' >{ `logout ${this.props.user.email}` }</span>
+          <i className='fa fa-user green menu__logo__icon' />
+          <span className='menu__logo__text--logout' >{ `logout ${this.props.user.email}` }</span>
         </div>
       );
     }
@@ -38,18 +38,22 @@ export default class Nav extends React.Component {
 
   render() {
     return (
-        <div className='archie-menu'>
+        <div className='menu'>
           <div className='contain'>
-            <div className='archie__logo'>
+            <div className='menu__logo'>
 
               <LocalLink route='home' currentRoute={ this.props.currentRoute }>
-                <i className='fa fa-compass blue archie__logo__icon' />
-                <span className='archie__logo__text'></span>
+                <i className='fa fa-compass blue menu__logo__icon' />
+                <span className='menu__logo__text'>boarder-app</span>
               </LocalLink>
 
             </div>
-            <ul className='archie-menu-items'>
-              <li className='archie-menu-item'>
+            <ul className='menu__items'>
+              <li className='menu__items__item'>
+                <LocalLink route='home' currentRoute={ this.props.currentRoute }>
+                </LocalLink>
+              </li>
+              <li className='menu__items__item'>
                 { this.renderLogin() }
               </li>
             </ul>

@@ -18,25 +18,29 @@ export default class Tray extends React.Component {
   render() {
     return (
         <div className='tray'>
-          <ul className='archie-tray__items'>
-            <li className='archie-tray__item'>
+          <ul className='tray__items'>
+            <li className='tray__item'>
               <LocalLink route='property' currentRoute={ this.props.currentRoute }>
-                <i className='fa fa-home white' />
+                <i className='fa fa-home' />
+                <span className='tray__item__label'>Properties</span>
               </LocalLink>
             </li>
-            <li className='archie-tray__item'>
+            <li className='tray__item'>
               <LocalLink route='payment' currentRoute={ this.props.currentRoute }>
-                <i className='fa fa-gbp white' />
+                <i className='fa fa-gbp' />
+                <span className='tray__item__label'>Payments</span>
               </LocalLink>
             </li>
-            <li className='archie-tray__item'>
+            <li className='tray__item'>
               <LocalLink route='docs' currentRoute={ this.props.currentRoute }>
-                <i className='fa fa-file-text-o white' />
+                <i className='fa fa-file-text-o' />
+                <span className='tray__item__label'>Documents</span>
               </LocalLink>
             </li>
-            <li className='archie-tray__item'>
+            <li className='tray__item'>
               <LocalLink route='chat' currentRoute={ this.props.currentRoute }>
-                <i className='fa fa-comment white' />
+                <i className='fa fa-comment' />
+                <span className='tray__item__label'>Chat</span>
               </LocalLink>
             </li>
           </ul>

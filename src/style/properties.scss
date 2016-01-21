@@ -4,25 +4,21 @@
 .properties {
   text-align: center;
 }
+.property__container {
+  padding: 0.5em;
+}
 .property {
-  max-width: 98%;
-  margin: 1%;
   text-align: center;
-  border: 1px solid #477998;
-  display: inline-block;
-  background-color: #477998;
-  box-shadow: 0px 1px 3px 1px rgba(51, 68, 49, 0.3), inset rgba(255, 255, 255, 0.2) 0 1px 1px;
+  background-color: #5eb3ef;
+  color: #fff;
 }
 .property__title {
-  background-color: white;
   padding: 0.5em;
 }
 .property__rooms {
-  background-color: white;
   padding: 0.5em;
 }
 .property__rent {
-  background-color: white;
   padding: 0.5em;
 
 }

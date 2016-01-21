@@ -21,7 +21,6 @@ export default class Home extends React.Component {
     return (
         <div className='contain content'>
           <h2>Property</h2>
-          <Properties />
         </div>
       );
     }
