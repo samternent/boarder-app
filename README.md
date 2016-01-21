@@ -1,15 +1,9 @@
-# archie.
-###TODO:
- - watchers
- - high order login protected component
- - async client login
- - server / client flux bridge
- - refactor components to es6 classes
+## boarder-app
 
 
 ```javascript
 $ npm install
-$ nodemon server/app.js
-$ npm run build:js
-$ npm run build:css
+$ npm run client-dev
+$ npm run server-dev
+$ npm run start-dev
 ```
