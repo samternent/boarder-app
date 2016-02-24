@@ -18,23 +18,15 @@ export default class Tray extends React.Component {
   render() {
     return (
         <div className='tray'>
+          <div className='tray__logo'>
+            <i className='fa fa-compass tray__logo__icon' />
+            <div className='tray__logo__text'>archie-app</div>
+          </div>
           <ul className='tray__items'>
             <li className='tray__item'>
-              <LocalLink route='property' currentRoute={ this.props.currentRoute }>
+              <LocalLink route='builder' currentRoute={ this.props.currentRoute }>
                 <i className='fa fa-home' />
-                <span className='tray__item__label'>Properties</span>
-              </LocalLink>
-            </li>
-            <li className='tray__item'>
-              <LocalLink route='payment' currentRoute={ this.props.currentRoute }>
-                <i className='fa fa-gbp' />
-                <span className='tray__item__label'>Payments</span>
-              </LocalLink>
-            </li>
-            <li className='tray__item'>
-              <LocalLink route='docs' currentRoute={ this.props.currentRoute }>
-                <i className='fa fa-file-text-o' />
-                <span className='tray__item__label'>Documents</span>
+                <span className='tray__item__label'>Builder</span>
               </LocalLink>
             </li>
             <li className='tray__item'>

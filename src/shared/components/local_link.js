@@ -21,8 +21,9 @@ export default class LocalLink extends React.Component {
 
   isActive() {
     if (this.props.route === this.props.currentRoute) {
-      return 'local-link--is-active'
+      return 'is-active'
     }
+    return '';
   }
 
   render() {

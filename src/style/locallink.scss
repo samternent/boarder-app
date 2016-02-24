@@ -1,0 +1,12 @@
+
+.local-link {
+  color: #3D4547;
+  text-decoration: none;
+  display: block;
+  padding: 0.5em;
+  overflow: auto;
+
+  &.is-active {
+    // background-color: red;
+  }
+}

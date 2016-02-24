@@ -1,29 +1,22 @@
+$white: #fff;
+$black: #3D4547;
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,100,700,800,200);
+@import url(https://fonts.googleapis.com/css?family=Montserrat+Alternates);
+@import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:400,100,700,800,200);
+
+@import './locallink.scss';
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.red { color: #477998; }
-.red { color: #E07A5F; }
-.blue { color: #5eb3ef; }
-.green { color: #81B29A; }
-.white { color: #fff; }
-.black { color: #5F634F; }
-
-.pointer {
-  cursor: pointer;
-}
-
-h1, h2, h3, h4, h5 { font-weight: 400; }
 
 body {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400;
+  font-family: 'Montserrat Alternates', sans-serif;
   font-size: 20px;
-  color: black;
+  color: $black;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -36,7 +29,7 @@ body {
 }
 .wrapper {
   flex: 1;
-  margin: 3em 0 0;
+  margin: 3.5em 0 0;
 }
 
 .layout {
@@ -57,4 +50,19 @@ body {
   .wrapper {
     margin: 3em 0 0;
   }
+}
+
+
+
+
+
+.pointer {
+  cursor: pointer;
+}
+
+
+.radio {
+  display: block;
+  margin: 0.5em;
+  input { margin-right: 1em; }
 }

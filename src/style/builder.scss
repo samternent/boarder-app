@@ -1,0 +1,19 @@
+.builder {}
+.builder__preview {
+  display: block;
+  border: 1px dashed #ccc;
+  padding: 1em;
+  min-height: 200px;
+}
+
+.builder__items {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: block;
+}
+.builder__item { display: block; margin: 0.5em; }
+.builder__item__link {
+  padding: 0.5em;
+  color: #333;
+}

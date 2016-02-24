@@ -26,19 +26,6 @@
   margin-right: 1em;
 }
 
-@media all and (min-width: 960px) {
-  .menu__logo {
-    font-size: 2em;
-    line-height: 1em;
-  }
-}
-
-
-@media all and (min-width: 640px) {
-  .menu {
-    line-height: 2em
-  }
-}
 
 
 
@@ -71,10 +58,30 @@
 }
 .menu__logo:hover a,
 .menu__items__item:hover a {
-    color: #1d261c; }
-  .menu__logo a,
-  .menu__items__item a {
-    padding: 0.25em 0.75em;
-    display: block;
-    color: #334431;
-    text-decoration: none; }
+  color: #1d261c;
+}
+.menu__logo a,
+.menu__items__item a {
+  padding: 0.25em 0.75em;
+  display: block;
+  color: #334431;
+  text-decoration: none;
+}
+
+
+@media all and (min-width: 640px) {
+  .menu {
+    line-height: 2em;
+    left: 80px;
+  }
+}
+@media all and (min-width: 960px) {
+  .menu {
+    line-height: 2em;
+    left: 250px;
+  }
+  .menu__logo {
+    font-size: 2em;
+    line-height: 1em;
+  }
+}

@@ -2,10 +2,8 @@ import React from 'react';
 import canUseDOM from 'can-use-dom';
 
 import Home from './layouts/home';
-import Property from './layouts/property';
-import Payment from './layouts/payment';
+import Builder from './layouts/builder';;
 import Chat from './layouts/chat';
-import Docs from './layouts/docs';
 
 // Styles
 if (canUseDOM) { require('../style/app'); }
@@ -24,10 +22,8 @@ import Login from './components/login';
 //
 var layouts = {
   'home'    : Home,
-  'property': Property,
-  'payment': Payment,
   'chat': Chat,
-  'docs': Docs
+  'builder': Builder
 };
 
 // Component
@@ -57,8 +53,8 @@ export default class Archie extends React.Component {
       const Layout = layouts[ this.state.app.route ]
       return (
         <div className='main-wrapper'>
-          <Nav currentRoute={ this.state.route } user={ this.state.user }/>
-          <Tray />
+          <Nav currentRoute={ this.state.app.route } user={ this.state.user }/>
+          <Tray currentRoute={ this.state.app.route } />
           <div className='wrapper'>
             <Login user={ this.state.user } />
             <div className='layout'>

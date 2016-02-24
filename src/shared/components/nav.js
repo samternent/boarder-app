@@ -24,7 +24,7 @@ export default class Nav extends React.Component {
     if (this.props.user.logged_in) {
       return (
         <div className='pointer' onClick={ this.handleLogoutClick.bind(this) }>
-          <i className='fa fa-user green menu__logo__icon' />
+          <i className='fa fa-user menu__logo__icon' />
           <span className='menu__logo__text--logout' >{ `logout ${this.props.user.email}` }</span>
         </div>
       );
@@ -43,8 +43,8 @@ export default class Nav extends React.Component {
             <div className='menu__logo'>
 
               <LocalLink route='home' currentRoute={ this.props.currentRoute }>
-                <i className='fa fa-compass blue menu__logo__icon' />
-                <span className='menu__logo__text'>boarder-app</span>
+                <i className='fa fa-compass menu__logo__icon' />
+                <span className='menu__logo__text'>archie-app</span>
               </LocalLink>
 
             </div>

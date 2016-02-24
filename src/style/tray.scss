@@ -1,28 +1,20 @@
+$white: #fff;
+$black: #3D4547;
 // tray
 .tray {
- background-color: #5F634F;
+ background-color: $white;
  position: fixed;
- bottom: 0; left: 0;
- right: 0;
+ bottom: 0; left: 0; right: 0;
+ text-align: center;
+ font-size: 2em;
 }
+.tray__logo {
+  display: none;
+}
+
 .tray__item {
-   padding: 0.5em;
-   font-size: 2em;
-   color: #000;
-   display: inline-block;
-   transition: all 0.3s;
-   a {
-     color: #fff;
-   }
-   &:hover {
-     background-color: #ccc;
-     a {
-       color: #5F634F;
-       &:hover {
-         color: darken(#5F634F,10);
-       }
-     }
-   }
+  display: inline-block;
+  transition: all 0.3s;
 }
 .tray__item__label {
   display: none;
@@ -39,10 +31,11 @@
 
 @media all and (min-width: 640px) {
   .tray {
-    flex: 0 0 4em;
-    order: 1;
-    margin: 2.5em 0 0;
+    flex: 0 0 80px;
+    order: 0;
+    font-size: 1em;
     position: relative;
+    border-right: 1px solid #3D4547;
   }
   .tray__item {
     display: block;
@@ -51,34 +44,33 @@
 
 @media all and (min-width: 960px) {
   .tray {
-    flex: 0 0 10em;
-    margin: 3em 0 0;
+    flex: 0 0 250px;
+    top: 0;
+    // padding: 5em 0 0;
   }
+  .tray__logo {
+    display: block;
+  }
+  .tray__logo__icon {
+    font-size: 3em;
+    display: block;
+  }
+  .tray__logo__text {
+    margin: 1em 0;
+  }
+
   .tray__items {
     text-align: left;
+    margin: 0;
+  }
+  .tray__item__icon {
+    float: left;
   }
   .tray__item__label {
-    font-size: 0.75em;
-    margin-left: 1em;
+    float: right;
     display: inline;
   }
   .tray__item {
-     padding: 0.5em;
-     font-size: 1em;
-     color: #000;
      display: block;
-     a {
-       color: #fff;
-       text-decoration: none;
-     }
-     &:hover {
-       background-color: #ccc;
-       a {
-         color: #5F634F;
-         &:hover {
-           color: darken(#5F634F,10);
-         }
-       }
-     }
   }
 }
